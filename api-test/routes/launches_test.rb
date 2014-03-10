@@ -8,11 +8,11 @@ class LaunchesTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Sinatra::Application
+    SmartilleryApi
   end
 
-  def test_launches_does_stuff
-    get '/launches'
+  def test_launches_invalid_date
+    get '/launches?since=some_invalid_date'
     assert last_response.ok?
   end
 end
